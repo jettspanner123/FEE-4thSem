@@ -1,0 +1,178 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="index.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+    <script src="https://kit.fontawesome.com/a8de825ec0.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<!--this is the page transition div-->
+<div class="page_transition_div">
+    <h1>GIGGLE WENT</h1>
+</div>
+<!--    this is the custom mouse cursor-->
+<div class="mouse_cursor">Scroll Down</div>
+
+<!--this is the phone-->
+
+<img src="ifone.png" alt="" class="phone_img"/>
+<div class="image_helper"></div>
+<!--this is the navbar-->
+
+
+<nav class="floating_navbar">
+    <h1>Giggle</h1>
+    <ul>
+        <li class="list_item" onclick="Functionality.ScrollToY(1150)">Form</li>
+        <li class="list_item" onclick="Functionality.ScrollToY(2200)">ECommerce</li>
+    </ul>
+</nav>
+<nav class="main_navbar">
+    <h1>Giggle</h1>
+    <ul>
+        <li class="list_item">Home</li>
+        <li class="list_item" onclick="Functionality.ScrollToY(170)">Services</li>
+    </ul>
+</nav>
+<main class="main_frame">
+    <section class="hero_section">
+        <h1 class="hero_section_heading">EXPERIENCE THE POP!</h1>
+    </section>
+
+    <div class="hero_section_helper"></div>
+    <section class="services_section">
+        <h1 class="services_section_heading ">Services We Provide:</h1>
+
+
+        <div class="services_section_scroll">
+            <div class="services_section_scroll_cards first_card"></div>
+            <div class="services_section_scroll_cards second_card"></div>
+            <div class="services_section_scroll_cards third_card"></div>
+            <div class="services_section_scroll_cards fourth_card"></div>
+        </div>
+
+        <div class="divider_one"></div>
+
+        <div class="services_section_about_us">
+            <div class="about_us_photo_slider"></div>
+            <div class="about_us_desc">
+            </div>
+        </div>
+
+
+        <div class="divider_two"></div>
+
+        <div class="services_section_other_div">
+            <h1 class="services_section_other_div_heading">
+                Service Request Form
+                <div class="services_section_other_div_heading_underline"></div>
+            </h1>
+
+            <div class="services_section_forms">
+                <div class=""
+                     style="overflow: visible; color: white; font-size: 4rem; text-transform: uppercase; flex: 1; display: flex; height: 80vh; border-radius: 1rem; margin-right: 1rem; justify-content: center; align-items: center">
+                    <h1 class="services_section_form_heading"
+                        style="text-align: justify; color: white; font-size: 4rem">My name is <input
+                            placeholder="Enter name here." type="text"/> and I have a request for <input
+                            placeholder="Enter service type here." type="text"/> services. The description from the
+                        services that I require are as follows: <textarea rows="10"
+                                                                          placeholder="Enter desc here."></textarea>
+                    </h1>
+                </div>
+            </div>
+            <button class="services_section_form_submit_button">I Assign</button>
+        </div>
+
+        <div class="services_section_some_div">
+            <h1 class="services_section_some_div_heading">Human ECommerce</h1>
+            <div class="services_section_some_div_ecommerce">
+                <div class="ecommerce_card_main">
+                    <!--                    this is the image div-->
+                    <div class="ecommerce_card_image_div"></div>
+                    <p class="ecommerce_card_heading">hello world my name is uddeshya singh and i am a plumber. I want
+                        to make money only.</p>
+                    <button class="ecommerce_card_button">Hire!</button>
+                </div>
+
+
+                <div class="ecommerce_card_main">
+                    <!--                    this is the image div-->
+                    <div class="ecommerce_card_image_div"></div>
+                    <p class="ecommerce_card_heading">hello world my name is uddeshya singh and i am a plumber. I want
+                        to make money only.</p>
+                    <button class="ecommerce_card_button">Hire!</button>
+                </div>
+
+
+                <div class="ecommerce_card_main">
+                    <!--                    this is the image div-->
+                    <div class="ecommerce_card_image_div"></div>
+                    <p class="ecommerce_card_heading">hello world my name is uddeshya singh and i am a plumber. I want
+                        to make money only.</p>
+                    <button class="ecommerce_card_button">Hire!</button>
+                </div>
+
+
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<!--this is the login / signup page-->
+<div class="user_reg_page_backdrop"></div>
+<div class="user_reg_page">
+    <div class="user_reg_page_nav">
+        <h1 class="login_page_exit_button">
+            <i class="fa-solid fa-arrow-up" style="transform: rotate(270deg)"></i>
+        </h1>
+    </div>
+    <div class="user_reg_page_login">
+        <div class="login_form">
+            <form>
+                <h1>Login Form</h1>
+                <label>Username: </label>
+                <input type="text" id="login_form_username_input" placeholder="Enter name here: "/>
+                <label>Password: </label>
+                <input type="password" id="login_form_password_input" placeholder="Enter password here: "/>
+                <button id="login_form_submit_button">Submit</button>
+                <p>Forgot Password?</p>
+
+                <p style="text-align: center; color: red; font-size: 1.25rem; margin-block: 1.5rem; display: none;" id="login_error_prompt">Either the password or username is wrong!</p>
+                <div></div>
+            </form>
+
+            <div></div>
+        </div>
+
+        <div class="login_form">
+            <form>
+                <h1>SignUp Form</h1>
+                <label>Username: </label>
+                <input type="text" placeholder="Enter name here: "/>
+                <label>Email: </label>
+                <input type="text" placeholder="Enter name here: "/>
+                <label>Password: </label>
+                <input type="text" placeholder="Enter name here: "/>
+                <label>Confirm Password: </label>
+                <input type="text" placeholder="Enter name here: "/>
+                <button>Submit</button>
+            </form>
+
+            <div></div>
+        </div>
+
+    </div>
+</div>
+
+
+</body>
+
+</html>
