@@ -32,7 +32,7 @@
     <ul style="display: flex;border-radius: 1rem; list-style: none; gap: 1rem;">
         <li onclick="window.scrollTo({top: 0, behavior: `smooth`, left: 0})">DBoard</li>
         <li id="scroll_to_ecommerce">ECommerce</li>
-        <li>Cart</li>
+        <li id="scroll_to_bookmark">BookMarkPage</li>
     </ul>
 </nav>
 
@@ -41,30 +41,41 @@
     style="font-size: 6rem; text-shadow: 6px 6px #201658 ;text-align: center; color: white; position: fixed; left: 50%; top: 50%; transform: translate(-50%, -50%);">
     GIGGLE DASHBOARD</h1>
 <main class="main_frame"
-      style="width: 65vw;border-radius: 2rem; padding: 2.5rem;   height: 200vh; background-color: #3a1c2e; position: absolute ;top: 80vh; left: 50%; transform: translate(-50%)">
+      style="width: 65vw;border-radius: 2rem; padding: 2.5rem; height: 400vh; background-color: #3a1c2e; position: absolute ;top: 80vh; left: 50%; transform: translate(-50%)">
     <div style="opacity: 0" class="inner_main_frame">
-        <h1 style="font-size: 5.5rem;margin-top: 5rem; text-shadow: 4px 4px black; color: #525CEB">GIGGLE ECOMMERCE:</h1>
+        <h1 style="font-size: 5.5rem;margin-top: 5rem; text-shadow: 4px 4px black; color: #525CEB">GIGGLE
+            ECOMMERCE:</h1>
         <menu style="width: 100%; font-size: 2rem; font-weight: bolder; display: flex; justify-content: end; gap: 1.5rem;">
             <span>Sort By:</span>
-            <button class="filter_button" style="font-size: 1.25rem; box-shadow: 5px 5px black; outline: none; border-radius: .5rem; padding: .75rem">Jobs</button>
-            <button  class="filter_button"  style="font-size: 1.25rem; box-shadow: 5px 5px black; outline: none; border-radius: .5rem; padding: .75rem">Price</button>
-            <button class="filter_button" style="font-size: 1.25rem; box-shadow: 5px 5px black; outline: none; border-radius: .5rem; padding: .75rem">Rating</button>
+            <button class="filter_button"
+                    style="font-size: 1.25rem; box-shadow: 5px 5px black; outline: none; border-radius: .5rem; padding: .75rem">
+                Jobs
+            </button>
+            <button class="filter_button"
+                    style="font-size: 1.25rem; box-shadow: 5px 5px black; outline: none; border-radius: .5rem; padding: .75rem">
+                Price
+            </button>
+            <button class="filter_button"
+                    style="font-size: 1.25rem; box-shadow: 5px 5px black; outline: none; border-radius: .5rem; padding: .75rem">
+                Rating
+            </button>
         </menu>
         <menu style="width: 100%; margin-top: 1.5rem; display: flex; justify-content: end; gap: 1.5rem;">
-            <button style="font-size: 1.25rem; box-shadow: 5px 5px black; outline: none; border-radius: .5rem; padding: .75rem">Add New ECommerce</button>
+            <button style="font-size: 1.25rem; box-shadow: 5px 5px black; outline: none; border-radius: .5rem; padding: .75rem">
+                Add New ECommerce
+            </button>
         </menu>
 
-        <div style="display: grid;margin-top: 5rem;place-items: center; row-gap: 3rem; grid-template-columns: repeat(3, 1fr);" id="main_ecommerce_section">
+        <div style="display: grid;margin-top: 5rem;place-items: center; row-gap: 3rem; grid-template-columns: repeat(3, 1fr);"
+             id="main_ecommerce_section">
         </div>
     </div>
 </main>
 
-<div id="details_page" style="height: 100vh; opacity: 0; width: 100vw; background-color: rgba(0,0,0,0.75); position: fixed; backdrop-filter: blur(20px); z-index: 2999; left: 0; top: -100vh; display: flex; justify-content: center; align-items: center;">
-    <div style="width: 90%; display: flex; justify-content: space-between; gap: 1rem;padding: 1rem;align-items: center; height: 90%; background-color: white; border-radius: 1rem; box-shadow: 10px 10px black;">
-        <div style="flex: 1; border-radius: 1rem; height: 100%; padding: 1rem;">
-            <div id="back_button" style="background-color: #525CEB;display: inline-block; color: white; font-weight: bolder; padding: 0.75rem; border-radius: .5rem; font-size: 1.5rem;">Back</div>
-        </div>
-        <div style="flex: 1; background-color: #f2d7c0; border-radius: 1rem; height: 100%;">1</div>
+<div id="details_page"
+     style="height: 100vh; opacity: 0; width: 100vw; background-color: rgba(0,0,0,0.75); position: fixed; backdrop-filter: blur(20px); z-index: 2999; left: 0; top: -100vh; display: flex; justify-content: center; align-items: center;">
+    <div id="details_page_inner_div" style="width: 90%; display: flex; justify-content: space-between; gap: 1rem;padding: 1rem;align-items: center; height: 90%; background-color: white; border-radius: 1rem; box-shadow: 10px 10px black;">
+
     </div>
 </div>
 

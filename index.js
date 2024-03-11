@@ -29,6 +29,7 @@ let Imports = {
 }
 
 
+
 let Constants = {
     MousePosition: {x: 0, y: 0},
     IsMouseDown: false,
@@ -162,8 +163,6 @@ const MouseCursorAnimation = () => {
 
 
 const GSAPAnimation = () => {
-
-
     gsap.to(".services_section", {
         scrollTrigger: {
             trigger: ".services_section",
