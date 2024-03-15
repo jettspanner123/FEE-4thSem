@@ -1,10 +1,10 @@
-
 const Imports = {
     OpeningTransitionDiv: document.querySelector(".opening_transition_div"),
     BackgroundImage: document.querySelector(".spinning_image"),
     CustomCursor: document.querySelector(".mouse_cursor"),
     NavbarMain: document.querySelector(".navbar_main"),
     ScrollToECommerce: document.getElementById("scroll_to_ecommerce"),
+    ScrollToBookmarks: document.getElementById("scroll_to_bookmark"),
     DocumentButtons: document.getElementsByTagName("button"),
     FilterButtons: document.querySelectorAll(".filter_button"),
     MainECommerceSection: document.getElementById("main_ecommerce_section"),
@@ -13,6 +13,7 @@ const Imports = {
     ECommerceCardButtons: document.querySelectorAll(".ecommerce_card_button"),
     BackButton: document.getElementById("back_button"),
     DetailsPageInnerDiv: document.getElementById("details_page_inner_div"),
+    BookMarkSectionInner: document.getElementById("bookmark_section_inner"),
 }
 
 let Constants = {
@@ -59,7 +60,7 @@ const Animations = {
             width: "85vw",
             y: "-5.5rem",
             color: "black",
-            backgroundColor: "#C5FFF8",
+            backgroundColor: "white",
             border: "0.5px solid black",
             boxShadow: "10px 10px black",
         })
@@ -103,12 +104,22 @@ const Animations = {
                 scrub: true
             },
             width: "100vw",
-            backgroundColor: "#C5FFF8",
+            backgroundColor: "#DCBFFF",
         })
 
     },
     ScrollToECommerceAnimation: () => {
         for (let i = 0; i < window.innerHeight / 2 - 70; i++) {
+            setTimeout(() => {
+                window.scrollTo({
+                    top: i,
+                    behavior: "smooth",
+                })
+            }, i + 100)
+        }
+    },
+    ScrollToBookmarksAnimation: () => {
+        for (let i = 0; i < window.innerHeight + 250; i++) {
             setTimeout(() => {
                 window.scrollTo({
                     top: i,
@@ -129,7 +140,7 @@ const Animations = {
             })
 
             item.addEventListener("click", (e) => {
-                item.style.backgroundColor = `red`;
+                item.style.backgroundColor = `purple`;
                 item.style.color = `pink`;
 
                 Imports.FilterButtons.forEach((item, index2) => {
@@ -139,6 +150,14 @@ const Animations = {
 
                     }
                 })
+            })
+        })
+    },
+    HandleFilter: () => {
+
+        Imports.FilterButtons.forEach((item, index) => {
+            item.addEventListener("click", (e) => {
+                console.log(item.getAttribute("data-val"));
             })
         })
     },
@@ -162,35 +181,40 @@ const ReturnCardInterface = function (MainImagePath, Description, Type, DisplayN
                 <img style="object-fit: cover; width: 100%; height: 100%;" src="${MainImagePath}" alt=""/>
             </div>
             <p class="ecommerce_card_heading">${Description}</p>
-            <p class="ecommerce_card_heading"><span style="font-weight: bolder;">Name: </span>${DisplayName}</p>
-            <p class="ecommerce_card_heading"><span style="font-weight: bolder;">Ocupation:</span>${Type}</p>
+            <p class="ecommerce_card_heading"><span style="font-weight: bolder; margin-right: 1rem;">Name: </span>${DisplayName}</p>
+            <p class="ecommerce_card_heading"><span style="font-weight: bolder; margin-right: 1rem;">Ocupation:</span>${Type}</p>
             <button id="${Constants.CardId++}" class="ecommerce_card_button">${HourlyRate} per hr</button>
         </div>`
 }
 
 const BookMarkPage = (some_id) => {
-     
+
 }
 
 
-const ReturnDetailPageInterface = function (FullName, Address, PhoneNo, hr_rate, email, image_src, main_desc) {
+const ReturnDetailPageInterface = function (FullName, Address, PhoneNo, hr_rate, email, image_src, main_desc, id) {
     return `<div id="yes" style="flex: 1; border-radius: 1rem; height: 100%; padding: 1.2rem;text-transform: uppercase; display: flex; flex-direction: column; justify-content: space-between;">
             <h1 style="font-size: 1.8rem; background: #525CEB; color: white; padding: 1rem; border-radius: .75rem;" >Personal Detials: </h1> 
             <div style="padding: 1rem;">
             <h1 style="margin-top: 2rem">Full Name: <span style="font-weight: 100">${FullName}</span></h1>
-            <h1>Address: <span style="font-weight: 100">${Address}</span></h1>
-            <h1>Phone Nm: <span style="font-weight: 100">${PhoneNo}</span></h1>
-            <h1>HR Rate: <span style="font-weight: 100">${hr_rate}</span>r/h</h1>
-            <h1>Email: <span style="font-weight: 100">${email}</span></h1>
+            <h1>Address: <span style="font-weight: 100; margin-left: 1rem;">${Address}</span></h1>
+            <h1>Phone Nm: <span style="font-weight: 100; margin-left: 1rem;">${PhoneNo}</span></h1>
+            <h1>HR Rate: <span style="font-weight: 100; margin-left: 1rem;">${hr_rate}</span>r/h</h1>
+            <h1>Email: <span style="font-weight: 100; margin-left: 1rem;">${email}</span></h1>
             </div> 
-            <textarea rows="5" style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 1rem; margin-top: .5rem;" placeholder="Any Special Requests."></textarea>
+            <textarea rows="3" style="width: 100%; padding: 1rem; font-size: 1rem; border-radius: 1rem; margin-top: .5rem;" placeholder="Any Special Requests."></textarea>
             <button style="width: 100%; border: none ;background: #525CEB; color: white; font-weight: bolder; text-transform: uppercase; padding: .75rem; outline: none; border-radius: .5rem; font-size: 1.5rem; margin-top: .25rem;">Submit Request</button>
         </div>
         <div style="flex: 1;display: flex; flex-direction: column; justify-content: space-between; background-color: #f2d7c0; border-radius: 1rem;padding: 1rem; height: 100%;">
             <img  src="${image_src}" alt="" style="width: 100%; height: 50%; border-radius: 1rem; object-fit: cover"/>
             <p style="font-weight: lighter; margin-top: 1rem; font-size: 2rem; text-align: justify">${main_desc}</p>
-            <button id="" style="width: 100%; background: #f48e1a; color: white; font-weight: bolder; border: .5px solid black; text-transform: uppercase;font-size: 1.5rem; padding: .75rem; margin-top: 4.75rem; ;outline: none; border-radius: .5rem;">Bookmark This Page</button>
+            <button onclick="Functionality.HandleBookMark(${id})" style="width: 100%; background: #f48e1a; color: white; font-weight: bolder; border: .5px solid black; text-transform: uppercase;font-size: 1.5rem; padding: .75rem; margin-top: 4.75rem; ;outline: none; border-radius: .5rem;">Bookmark This Page</button>
         </div>`
+}
+
+
+const GetBookmarks = () => {
+    return localStorage.getItem("bookmarks");
 }
 
 const Functionality = {
@@ -203,32 +227,56 @@ const Functionality = {
         })
 
 
-
         document.querySelectorAll(".ecommerce_card_button").forEach((item, index) => {
             item.addEventListener("click", (e) => {
                 Imports.DetailsPage.style.top = `0vh`;
                 Imports.CustomCursor.style.opacity = 0;
-                Object.values(this_data).map((item2 ,index) => {
-                    if(index == item.id) Imports.DetailsPageInnerDiv.innerHTML += ReturnDetailPageInterface(item2['details']['full_name'], item2['details']['address'], item2['details']['phone_number'],item2['details']['rate_per_hour'], item2['details']['email_id'], item2['main_image'], item2['main_desc']);
+                Object.values(this_data).map((item2, index) => {
+                    if (index == item.id) Imports.DetailsPageInnerDiv.innerHTML = ReturnDetailPageInterface(item2['details']['full_name'], item2['details']['address'], item2['details']['phone_number'], item2['details']['rate_per_hour'], item2['details']['email_id'], item2['main_image'], item2['main_desc'], item2['id']);
                 })
                 setTimeout(() => {
                     Imports.DetailsPage.style.opacity = `1`;
                 }, 300)
             })
         })
+    },
+    HandleBookMark: (id) => {
+        const prs = localStorage.getItem("bookmarks");
+        let bookmarks = prs ? JSON.parse(prs) : []
+        bookmarks.push(id);
+        localStorage.setItem("bookmarks", JSON.stringify(bookmarks));
+        setTimeout(() => {
+            console.log(GetBookmarks())
+        }, 500);
+    },
+    HandleBookmarkRender: () => {
+        const prs = localStorage.getItem("bookmarks");
+        let bookmarks = prs ? JSON.parse(prs) : [];
+        if (bookmarks.length !== 0) {
+            bookmarks.map(async (item, index) => {
 
-        Imports.BackButton.onclick = () => {
-            Imports.CustomCursor.style.opacity = 1;
-            Imports.DetailsPage.style.opacity = 0;
-            setTimeout(() => {
-                Imports.DetailsPage.style.top = `-10vh`;
-            }, 200)
+                const jsonFile = await fetch("data.json");
+                const jsonData = await jsonFile.json();
+                const this_data = jsonData['ecommerce_list'];
+                Object.values(this_data).map((item2, index2) => {
+                    if(item2['id'] == item) Imports.BookMarkSectionInner.innerHTML += ReturnCardInterface(item2['main_image'], item2['main_desc'], item2['job_type'], item2['display_name'], item2['details']['rate_per_hour']);
+                })
 
-            setTimeout(() => {
-                Imports.DetailsPage.style.top = `-100vh`;
-            }, 400)
+            })
+        } else {
+            Imports.BookMarkSectionInner.innerHTML = "No Bookmarks Yet!";
         }
     }
+
+}
+
+
+const CloseDetailsPage = () => {
+    Imports.DetailsPage.style.opacity = 0;
+    Imports.DetailsPage.style.top = `-10vh`;
+    setTimeout(() => {
+        Imports.DetailsPage.style.top = `-100vh`;
+    }, 400)
 }
 
 
@@ -253,9 +301,14 @@ window.onload = () => {
     setTimeout(Animations.HandleMouseMoveECommerceCard, 100);
     setInterval(Animations.UpdateCursorPointerPosition, 1);
     Imports.ScrollToECommerce.onclick = Animations.ScrollToECommerceAnimation;
+    Imports.ScrollToBookmarks.onclick = Animations.ScrollToBookmarksAnimation;
     Animations.GSAPAnimation();
     Animations.FilterButtonTapAnimation();
     Functionality.HandleECommerce();
+    setInterval(() => {
+        Imports.BookMarkSectionInner.innerHTML = "";
+        Functionality.HandleBookmarkRender();
+    }, 3000);
 
 
 }

@@ -16,30 +16,30 @@
   "ecommerce_list": [
     {
       "main_image": "https://media.istockphoto.com/id/1326417862/photo/young-woman-laughing-while-relaxing-at-home.jpg?s=612x612&w=0&k=20&c=cd8e6RBGOe4b8a8vTcKW0Jo9JONv1bKSMTKcxaCra8c=",
-      "display_name": "Vanshika Garg",
-      "main_desc": "Hey, I'm Vanshika you friendly neighbourhood plumber.",
+      "display_name": "Amber Herd",
+      "main_desc": "Hey, I'm Amber you friendly neighbourhood plumber.",
       "job_type": "Plumber",
       "id": "0",
       "details": {
-        "full_name":  "Vanshika Garg",
+        "full_name":  "Amber Herd",
         "address": "Chitkara University, Patiala, Punjab",
         "phone_number": "9875660105",
         "rate_per_hour": "200",
-        "email_id": "vanshika2507.be22@chitkara.edu.in"
+        "email_id": "amber.herd@chitkara.edu.in"
       }
     },
     {
       "main_image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTTb3HHOV1phE7xbhwAfFEHaG4xnH_JJxljEA&usqp=CAU",
-      "display_name": "Uddeshya Singh",
-      "main_desc": "Hey, I'm Uddeshya you friendly neighbourhood plumber.",
+      "display_name": "Jhonny Depp",
+      "main_desc": "Hey, I'm Jhonny you friendly neighbourhood mechanic.",
       "job_type": "Electrician",
       "id": "1",
       "details": {
-        "full_name":  "Uddeshya Singh",
+        "full_name":  "Jhonny Depp",
         "address": "Chitkara University, Patiala, Punjab",
         "phone_number": "9875660105",
         "rate_per_hour": "150",
-        "email_id": "uddeshya2475.be22@chitkara.edu.in"
+        "email_id": "j.d@chitkara.edu.in"
       }
     },
     {
@@ -47,13 +47,54 @@
       "display_name": "Vanshika Goel",
       "main_desc": "Hey, I'm Uddeshya you friendly neighbourhood plumber.",
       "job_type": "Electrician",
-      "id": "1",
+      "id": "2",
       "details": {
         "full_name":  "Uddeshya Singh",
         "address": "Chitkara University, Patiala, Punjab",
         "phone_number": "9875660105",
         "rate_per_hour": "150",
         "email_id": "uddeshya2475.be22@chitkara.edu.in"
+      }
+    },
+    {
+      "main_image": "src/designer_a.jpg",
+      "display_name": "Abdullah Khan",
+      "main_desc": "Hello there, I'm Abdullah from Varanasi and I'm a Designer Architect, I'm here for Online Payback.",
+      "job_type": "Designer Architect",
+      "id": "3",
+      "details": {
+        "full_name":  "Mohammed Abdullah Khan",
+        "address": "PanchGaw, Varanasi",
+        "phone_number": "987654321",
+        "rate_per_hour": "550",
+        "email_id": "abd_mohmd@gmail.com"
+      }
+    },
+    {
+      "main_image": "src/fashion_d.jpg",
+      "display_name": "Rekha Singh",
+      "main_desc":"Hey, I'm Rekha. I'm here to solve all of your Fashion Sense issues through my designer sarees and legengas.",
+      "job_type": "Fashion Designer",
+      "id": "4",
+      "details": {
+        "full_name":  "Rekha Singh",
+        "address": "Howrah, West Bengal",
+        "phone_number": "7838162787",
+        "rate_per_hour": "200",
+        "email_id": "rekhasaahil2004@yahoo.com"
+      }
+    },{
+      "main_image": "src/interior_d.jpg",
+      "display_name": "Santianoo D'Antonio",
+      "main_desc": "Need a CA online? Well I'm here. Hey, I'm D'Antonio here to help you will all of you",
+      "job_type": "Charted Accountant",
+      "id": "5",
+      "details": {
+        "full_name":  "Santianoo D'Antonio",
+        "address": "Gurgaon, Punjab",
+        "phone_number": "9875660105",
+        "rate_per_hour": "1000",
+        "email_id": "randhirsingh@gmail.com"
       }
     }
   ]

@@ -1,6 +1,7 @@
 let Imports = {
     HeroSectionHeading: document.querySelector(".hero_section_heading"),
     MouseCursor: document.querySelector(".mouse_cursor"),
+    FormAssignButton: document.getElementById("form_assign_button"),
     HeroSectionHeadingHelper: document.querySelector(".hero_section_heading_helper"),
     ListItems: document.querySelectorAll(".list_item"),
     PhoneImage: document.querySelector(".phone_img"),
@@ -26,8 +27,9 @@ let Imports = {
     LoginFormUsernameInput: document.getElementById("login_form_username_input"),
     LoginFormPasswordInput: document.getElementById("login_form_password_input"),
     LoginFormSubmitButton: document.getElementById("login_form_submit_button"),
+    LoaderScreen: document.getElementById("loader_screen"),
+    AboutUsMarquee: document.querySelector(".about_us_marquee"),
 }
-
 
 
 let Constants = {
@@ -36,6 +38,7 @@ let Constants = {
     ScrollY: 0,
     RawScrollY: 0,
     IsLoginPageOpen: false,
+    IsShow: true,
 }
 
 
@@ -67,7 +70,7 @@ const HeroSectionMouseAnimation = () => {
     Imports.ImageHelper.style.transform = `translate(calc(-50% - ${Constants.MousePosition.x / window.innerWidth * 70}px), calc(-50% + 3rem)`;
 
 
-    Imports.HeroSection.style.background = `radial-gradient(circle at ${Constants.MousePosition.x}px ${Constants.MousePosition.y}px, #535C91 0%,  #1B1A55 20%, #070F2B 50%)`
+    Imports.HeroSection.style.background = `radial-gradient(circle at ${Constants.MousePosition.x}px ${Constants.MousePosition.y}px, #AD88C6 0%,  #7469B6 20%, #6C22A6 50%)`
 }
 
 
@@ -122,7 +125,7 @@ const ServicesSectionBlackBoxScrollAnimation = () => {
 
 const ServicesSectionBlackBoxMouseAnimation = () => {
     const {left, top} = Imports.ServicesSectionBlackBox.getBoundingClientRect();
-    Imports.ServicesSectionBlackBox.style.background = `radial-gradient(circle farthest-side at ${Constants.MousePosition.x - left}px ${Constants.MousePosition.y - top}px, #333A73 0%, black 80%)`
+    Imports.ServicesSectionBlackBox.style.background = `radial-gradient(circle farthest-side at ${Constants.MousePosition.x - left}px ${Constants.MousePosition.y - top}px, #6C22A6 0%, black 80%)`
 }
 
 
@@ -152,12 +155,14 @@ const MouseCursorAnimation = () => {
         Imports.MouseCursor.style.color = `black`;
         Imports.MouseCursor.style.transform = `scale(4)`;
         Imports.MouseCursor.innerHTML = "";
+        Imports.MouseCursor.style.mixBlendMode = "color-burn";
 
     } else {
         Imports.MouseCursor.style.backgroundColor = `transparent`;
         Imports.MouseCursor.style.color = `#FFE3CA`;
         Imports.MouseCursor.style.transform = `scale(1)`;
         Imports.MouseCursor.innerHTML = "Scroll Down";
+        Imports.MouseCursor.style.mixBlendMode = "difference";
     }
 }
 
@@ -173,19 +178,13 @@ const GSAPAnimation = () => {
         y: "-200vh",
     })
 
+
 }
 
 
 const FloatingNavbarAnimation = () => {
 
-    document.querySelectorAll(".list_item").forEach((item) => {
-        item.addEventListener("click", (e) => {
-            setTimeout(() => {
-                item.style.transition = `all 250ms ease-out`;
-                item.style.opacity = "0";
-            }, 300)
-        })
-    })
+
     if (Constants.RawScrollY > 115) Imports.FloatingNavbar.style.transform = `translate(-50%, 0)`;
     else Imports.FloatingNavbar.style.transform = `translate(-50%, -15vh)`;
     if (Constants.RawScrollY > 1075 && Constants.RawScrollY < 2050) {
@@ -220,6 +219,11 @@ const FloatingNavbarAnimation = () => {
     }
 }
 
+
+const AboutUsMarqueeAnimation = () => {
+    Imports.AboutUsMarquee.style.transform = `translate(-${Constants.ScrollY * 60}rem)`
+}
+
 const HandleLoginPageAnimation = () => {
     Imports.ECommerceCardButton.forEach((item, index) => {
         item.addEventListener("click", (e) => {
@@ -243,6 +247,63 @@ const HandleLoginPageAnimation = () => {
         }, 500)
     }
 
+
+}
+
+const ExportHandlePageAnimation = () => {
+    Imports.LoginPage.style.pointerEvents = "auto";
+    Imports.LoginPageNavbar.style.transform = `translate(0)`;
+    Imports.LoginPageLogin.style.transform = `translate(0)`;
+    setTimeout(() => {
+        Imports.MouseCursor.style.opacity = 0;
+    }, 500)
+}
+
+const HandleFormSubmitIndexPage = (e) => {
+    e.preventDefault();
+    const userdata = {
+        name: document.getElementById("form-name").value,
+        service_type: document.getElementById("form-service-type").value,
+        service_description: document.getElementById("form-desc").value,
+    }
+
+    Imports.FormAssignButton.innerHTML = "Review Collected <i class=\"fa-solid fa-check\"></i>"
+    setTimeout(() => {
+        Imports.FormAssignButton.innerHTML = "Submit Another Response"
+    }, 2500);
+
+}
+
+
+const HandleSignUpForm = () => {
+    const SubmitSignupButton = document.getElementById("submit_signup");
+    const SignUpUsername = document.getElementById("signup_username");
+    const SignUpEmail = document.getElementById("signup_email");
+    const SignUpPassword = document.getElementById("signup_password");
+    const SignUpCPassword = document.getElementById("signup_confirm_password");
+
+    SubmitSignupButton.onclick = (e) => {
+        e.preventDefault();
+        if(!SignUpPassword.value && !SignUpCPassword.value && !SignUpUsername && !SignUpEmail) {
+            if(SignUpPassword.value === SignUpCPassword.value) {
+
+            } else {
+                document.getElementById("login_error_prompt").style.display = "block";
+                document.getElementById("login_error_prompt").innerText = "Please make sure that the passwords are same!";
+                document.getElementById("login_error_prompt").style.color = "red";
+                setTimeout(() => {
+                    document.getElementById("login_error_prompt").style.display = "none";
+                }, 1500)
+            }
+        } else {
+            document.getElementById("login_error_prompt").style.display = "block";
+            document.getElementById("login_error_prompt").innerText = "Please make sure all the fields are filled and passwords match!";
+            document.getElementById("login_error_prompt").style.color = "red";
+            setTimeout(() => {
+                document.getElementById("login_error_prompt").style.display = "none";
+            }, 1500)
+        }
+    }
 
 }
 
@@ -297,7 +358,7 @@ const HandleLogIn = () => {
                     Functionality.TriggerPageTransition();
                 }, 400)
                 setTimeout(() => {
-                    window.open("Dashboard.html");
+                    window.location.href = "Dashboard.html";
                 }, 3000)
             }
             document.getElementById("login_error_prompt").style.display = "block";
@@ -308,18 +369,59 @@ const HandleLogIn = () => {
     }
 }
 
-    window.onload = () => {
-        console.log("hello world");
-        UpdateMousePointerPosition();
-        UpdateScrollY();
-        setInterval(HeroSectionMouseAnimation, 1);
-        setInterval(MouseCursorAnimation, 1);
-        setInterval(ServicesSectionBlackBoxScrollAnimation, 1);
-        setInterval(ServicesSectionBlackBoxMouseAnimation, 1);
-        setInterval(FloatingNavbarAnimation, 1);
-        ServicesSectionAnimation();
-        GSAPAnimation();
-        HandleLoginPageAnimation();
-        HandleLogIn();
-    }
+const PhoneImageHelperClickAnimation = () => {
+    Constants.IsShow = false;
+    const TransitionH = document.getElementById("transition_page_h");
+    TransitionH.style.transition = `all 1.5s cubic-bezier(0.33, 1, 0.68, 1)`;
+    TransitionH.style.transform = `translate(-50%, -50%)`;
+    TransitionH.style.opacity = "1";
+    setTimeout(() => {
+        Imports.ImageHelper.style.zIndex = `400000`;
+        window.location.reload();
+    }, 1500)
+
+}
+
+window.onload = () => {
+    let i = 0;
+    let startLoading = false;
+    setTimeout(() => {
+        const LoaderInterval = setInterval(() => {
+            document.getElementById("loader_helper").style.width = `${i}%`;
+            if (!(i > 100)) document.getElementById("precentage_h1").innerText = `${i}%`;
+            i++;
+            if (i === 110) {
+                startLoading = true;
+                clearInterval(LoaderInterval);
+            }
+        }, 11)
+    }, 1000)
+
+    let clsInt = setInterval(() => {
+        if (startLoading) {
+            setInterval(() => {
+                Imports.LoaderScreen.style.top = "-100vh"
+                clearInterval(clsInt);
+            }, 500)
+        }
+    })
+    UpdateMousePointerPosition();
+    UpdateScrollY();
+    setInterval(() => {
+        if (Constants.IsShow) HeroSectionMouseAnimation();
+    }, 1);
+    setInterval(MouseCursorAnimation, 1);
+    setInterval(ServicesSectionBlackBoxScrollAnimation, 1);
+    setInterval(ServicesSectionBlackBoxMouseAnimation, 1);
+    setInterval(FloatingNavbarAnimation, 1);
+    setInterval(AboutUsMarqueeAnimation, 1);
+    ServicesSectionAnimation();
+    GSAPAnimation();
+    HandleLoginPageAnimation();
+    HandleLogIn();
+    Imports.ImageHelper.onclick = PhoneImageHelperClickAnimation;
+    Imports.FormAssignButton.onclick = HandleFormSubmitIndexPage;
+    HandleSignUpForm();
+}
+
 

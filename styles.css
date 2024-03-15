@@ -1,10 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
 :root {
     --vanshik: "Oswald", sans-serif;
     --poppins: "Poppins", sans-serif;
+    --dark_text: #7469B6;
+    --light_background: #F3CCF3;
 }
+
 ul {
     list-style: none;
 }
@@ -47,6 +51,13 @@ section {
     text-shadow: 10px 10px black;
 }
 
+.bebas_new {
+    font-family: "Bebas Neue", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
 .hero_section_heading {
     position: absolute;
     left: 50%;
@@ -61,7 +72,7 @@ section {
     top: 50%;
     width: 100%;
     text-align: center;
-    color: #C5FFF8;
+    color: var(--light_background);
     transform: translate(-50%, -50%);
 }
 
@@ -129,11 +140,11 @@ section {
     padding-top: 5rem;
     overflow: hidden;
     padding-inline: 3rem;
-    background-color: #C5FFF8;
+    background-color: #DCBFFF;
     position: absolute;
     transition: all .5s ease-out;
     top: 100vh;
-    height: 575vh;
+    height: 623vh;
     border-top-left-radius: 5rem;
     border-top-right-radius: 5rem;
     width: 100vw;
@@ -150,6 +161,10 @@ section {
     padding-top: 3rem;
 }
 
+.about_us_marquee {
+    transition: all .5s cubic-bezier(0.33, 1, 0.68, 1);
+}
+
 .services_section_scroll_cards {
     height: 25rem;
     width: 35rem;
@@ -157,17 +172,17 @@ section {
 }
 
 .first_card {
-    background-color: #280274;
+    background-color: #AD88C6;
 }
 
 
 .second_card {
-    background-color: #0B60B0;
+    background-color: var(--dark_text);
 }
 
 
 .third_card {
-    background-color: #201658;
+    background-color: #6420AA;
 }
 
 
@@ -182,7 +197,7 @@ section {
     text-transform: uppercase;
     margin-top: 0rem;
     transition: all 1s ease-out;
-    color: #525CEB;
+    color: #7469B6;
 }
 
 
@@ -218,7 +233,8 @@ section {
     border-top: 2px solid black;
     border-left: 2px solid black;
     border-radius: 1rem;
-    background-color: white;
+    background-color: #6420AA;
+    color: white;
 }
 
 
@@ -268,7 +284,7 @@ section {
     text-align: center;
     padding: 3.5rem;
     display: inline-block;
-    text-shadow: 5px 5px #525CEB;
+    text-shadow: 5px 5px #6420AA;
 }
 
 .services_section_other_div_heading_underline {
@@ -276,7 +292,7 @@ section {
     width: 100%;
     height: 10px;;
     border-radius: 1rem;
-    box-shadow: 5px 5px #1D24CA;
+    box-shadow: 5px 5px #6420AA;
 }
 
 
@@ -294,6 +310,10 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.services_section_form_heading {
+    font-size: 3.5rem;
 }
 
 .services_section_form_heading input {
@@ -415,7 +435,7 @@ section {
 .services_section_some_div_heading {
     font-size: 6rem;
     text-shadow: 5px 5px black;
-    color: #525CEB;
+    color: var(--dark_text);
 }
 
 .services_section_some_div_ecommerce {
@@ -425,14 +445,17 @@ section {
     margin-top: 5rem;
     grid-row-gap: 5rem;
     grid-column-gap: 6rem;
-    place-items: start;
+    place-items: center;
+    transform: translate(-3rem);
+    width: 100vw;
+    padding-inline: 3rem;
     padding-bottom: 5rem;
 }
 
 .ecommerce_card_main {
     height: 35rem;
     border-radius: 1rem;
-    width: 25rem;
+    width: 23.5rem;
     background: white;
     border: 0.5px solid grey;
     box-shadow: 9px 9px black;
@@ -445,7 +468,7 @@ section {
 
 
 .ecommerce_card_image_div {
-    background-color: #f2d7c0;
+    background-color: pink;
     width: 100%;
     border: .5px solid black;
     height: 60%;
@@ -472,9 +495,8 @@ section {
 
 .ecommerce_card_button:hover {
     color: white;
-    background-color: #525CEB;
+    background-color: var(--dark_text);
 }
-
 
 
 .page_transition_div {
@@ -505,7 +527,7 @@ section {
     height: 100vh;
     top: 0;
     left: 0;
-    background: rgba(0,0,0,0.55);
+    background: rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(20px);
 }
 
@@ -521,7 +543,7 @@ section {
 }
 
 .user_reg_page_nav {
-    background: #201658;
+    background: #6420AA;
     height: 100%;
     width: 7%;
     color: white;
@@ -532,7 +554,7 @@ section {
 }
 
 .user_reg_page_login {
-    background: #C5FFF8;
+    background: #DCBFFF;
     height: 100%;
     box-shadow: 10px 10px black;
     width: 93%;
@@ -547,7 +569,7 @@ section {
     background: white;
     padding: .5rem;
     border-radius: .5rem;
-    color: black;
+    color: #6420AA;
 }
 
 .login_form {
@@ -559,7 +581,7 @@ section {
 
 .login_form form h1 {
     font-size: 3rem;
-    color: #201658;
+    color: #6420AA;
     text-transform: uppercase;
     margin-bottom: 3rem;
     background: white;
@@ -584,17 +606,17 @@ section {
 
 .login_form input {
     font-size: 1.5rem;
-    border: .5px solid #0B60B0;
+    border: .5px solid #6420AA;
     border-radius: .5rem;
     padding: .5rem;
 }
 
 .login_form button {
     font-size: 1.5rem;
-    border: .5px solid #0B60B0;
+    border: .5px solid #6420AA;
     padding: .5rem;
     border-radius: .5rem;
-    background: #201658;
+    background: #6420AA;
     color: white;
     margin-block: 1.5rem;
 }
@@ -605,4 +627,109 @@ section {
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+
+@media (max-width: 1238px) {
+    .hero_section_heading {
+        font-size: 7rem;
+    }
+
+    .about_us_desc * {
+        font-size: 1.5rem;
+    }
+
+    .services_section_form_heading {
+        font-size: 2.7rem;
+    }
+}
+
+@media (max-width: 1000px) {
+    .main_navbar {
+        width: 100vw;
+    }
+
+    .floating_navbar {
+        width: 100vw;
+        top: 0;
+        border-radius: 0;
+        box-shadow: 0 0 black;
+    }
+
+    .services_section_form_heading {
+        font-size: 2rem;
+    }
+
+}
+
+@media (max-width: 850px) {
+    .hero_section_heading {
+        font-size: 5rem;
+    }
+}
+
+@media (max-width: 500px) {
+    .hero_section_heading {
+        font-size: 2.7rem;
+        letter-spacing: 1px;
+    }
+
+    .about_us_desc {
+        transform: translate(-1rem);
+    }
+
+    .services_section_some_div_heading {
+        font-size: 5rem;
+        width: 100%;
+        text-shadow: none;
+    }
+
+    .services_section_some_div_ecommerce {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .ecommerce_card_main {
+        transform: translate(1.5rem);
+    }
+
+    .services_section_forms {
+        transform: translate(-1.5rem);
+    }
+
+    .user_reg_page {
+        transform: translate(-50vw);
+    }
+
+    .services_section_heading {
+        font-size: 2rem;
+        text-shadow: none;
+        width: 100%;
+    }
+
+    .services_section {
+        border-radius: 0;
+        padding: 1rem;
+    }
+
+    .services_section_about_us {
+        display: block;
+    }
+
+    .percentage_h1 {
+        font-size: 3rem;
+    }
+
+    .divider_one {
+        display: none;
+    }
+
+    .divider_two {
+        display: none;
+    }
+
+    .services_section {
+        height: 730vh;
+    }
 }
