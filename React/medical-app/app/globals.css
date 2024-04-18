@@ -17,13 +17,4 @@
 
 ::-webkit-scrollbar {
     display: none;
-}
-
-body {
-    background-color: black;
-    color: white;
-}
-
-.blur_it {
-    backdrop-filter: blur(20px);
-}
+ }
